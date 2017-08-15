@@ -9,5 +9,5 @@ script:
     #phpunit -c phpunit.xml --coverage-text
     
 after_success: #send code to server, may can use other's name
-  echo 'ok'
   #ssh -t tww@haswell-sec 'cd /home/tww/test/test && git pull'
+  ./test.sh
