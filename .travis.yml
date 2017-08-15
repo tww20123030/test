@@ -1,13 +1,16 @@
 language: php
 php:
-  - '5.6'
-before_script: #executed cmd before testing
-  composer require phpunit/phpunit
-
-script:
-    phpunit Test.php
-    #phpunit -c phpunit.xml --coverage-text
-    
-after_success: #send code to server, may can use other's name
-  #ssh -t tww@haswell-sec 'cd /home/tww/test/test && git pull'
-  ./test.sh
+- '5.6'
+cache:
+  apt: true
+addons:
+  ssh_known_hosts: haswell:22
+before_script: composer require phpunit/phpunit
+script: phpunit Test.php
+after_success: 
+    ssh tww@haswell && touch ci.txt
+before_install:
+- openssl aes-256-cbc -K $encrypted_273edb0521c2_key -iv $encrypted_273edb0521c2_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+  chmod 600 ~/.ssh/id_rsa
+  echo -e "haswell 192.168.10.207\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
