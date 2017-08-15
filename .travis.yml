@@ -2,10 +2,10 @@ language: php
 php:
   - '5.6'
 before_script: #executed cmd before testing
-  #composer require phpunit/phpunit
+  composer require phpunit/phpunit
 
 script:
-    phpunit /home/tww/project/test2/test/Test.php
+    phpunit Test.php
     #phpunit -c phpunit.xml --coverage-text
     
 after_success: #send code to server, may can use other's name
