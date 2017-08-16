@@ -6,6 +6,6 @@ class Test{
     }
   }
 }
-$object1 = new Test();
+ $object1 = new Test();
 $object1->testAutoPass();
 ?>
