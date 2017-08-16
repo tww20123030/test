@@ -21,10 +21,9 @@ before_install:
   #-  echo -e "Host  192.168.10.207\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 deploy:
- provider: releases
+ provider: pages
  skip_cleanup: true
  github_token: $Token_CI # Set in travis-ci.org dashboard
- overwrite: false
  on: 
    all_branches: true
 
