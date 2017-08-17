@@ -1,0 +1,8 @@
+tags
+*.o
+*.o.d
+*.ko
+*.cmd
+*.mod
+*.mod.c
+out
